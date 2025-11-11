@@ -27,6 +27,12 @@
   font-size: 14px;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .score-display {
   background: linear-gradient(135deg, var(--primary-blue), var(--purple));
   color: white;
@@ -34,6 +40,28 @@
   border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background-color: var(--error-red);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
 }
 
 .progress-section {

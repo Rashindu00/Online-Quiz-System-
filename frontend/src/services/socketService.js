@@ -21,17 +21,22 @@ class SocketService {
         // Note: For actual implementation, you would need a WebSocket server
         // or use a library like socket.io. This is a placeholder structure.
         
-        // Simulating connection for demonstration
+        // Simulating connection for demonstration (DEMO MODE)
         console.log(`Attempting to connect to ${host}:${port}`);
+        console.log('Running in DEMO MODE - simulating server connection');
         
         // In a real implementation, you would create a WebSocket connection
         // this.ws = new WebSocket(`ws://${host}:${port}`);
         
-        this.isConnected = true;
-        this.reconnectAttempts = 0;
-        
-        this.emit('connected', { host, port });
-        resolve(true);
+        // Simulate connection delay
+        setTimeout(() => {
+          this.isConnected = true;
+          this.reconnectAttempts = 0;
+          
+          this.emit('connected', { host, port });
+          console.log('Connected successfully (DEMO MODE)');
+          resolve(true);
+        }, 500);
         
       } catch (error) {
         console.error('Connection failed:', error);
@@ -51,6 +56,12 @@ class SocketService {
     };
     
     this.send('REGISTER', data);
+    
+    // Simulate registration success (DEMO MODE)
+    setTimeout(() => {
+      this.emit('registered', { success: true, studentName, studentId });
+      console.log('Student registered successfully (DEMO MODE)');
+    }, 300);
   }
 
   /**
