@@ -120,9 +120,9 @@ public class QuizClient {
         int timeLimit = extractIntValue(questionJson, "timeLimit");
         
         // Display question
-        System.out.println("\n" + "=".repeat(50));
+        System.out.println("\n" + repeat("=", 50));
         System.out.println("QUESTION " + questionId);
-        System.out.println("=".repeat(50));
+        System.out.println(repeat("=", 50));
         System.out.println(questionText);
         System.out.println("\nOptions:");
         
@@ -158,13 +158,13 @@ public class QuizClient {
         boolean correct = extractStringValue(feedbackJson, "correct").equals("true");
         int points = extractIntValue(feedbackJson, "points");
         
-        System.out.println("\n" + "-".repeat(50));
+        System.out.println("\n" + repeat("-", 50));
         if (correct) {
             System.out.println("✓ CORRECT! You earned " + points + " points!");
         } else {
             System.out.println("✗ WRONG! No points earned.");
         }
-        System.out.println("-".repeat(50));
+        System.out.println(repeat("-", 50));
         System.out.println("Waiting for next question...\n");
     }
     
@@ -174,9 +174,9 @@ public class QuizClient {
     private void handleResults(String message) {
         String resultsJson = message.substring("RESULTS:".length());
         
-        System.out.println("\n" + "=".repeat(50));
+        System.out.println("\n" + repeat("=", 50));
         System.out.println("QUIZ COMPLETED - FINAL RESULTS");
-        System.out.println("=".repeat(50));
+        System.out.println(repeat("=", 50));
         
         // Display leaderboard
         displayLeaderboard(resultsJson);
@@ -187,9 +187,9 @@ public class QuizClient {
      */
     private void displayLeaderboard(String resultsJson) {
         System.out.println("\nLEADERBOARD:");
-        System.out.println("-".repeat(50));
+        System.out.println(repeat("-", 50));
         System.out.printf("%-5s %-20s %-10s %-10s%n", "Rank", "Name", "Score", "Percentage");
-        System.out.println("-".repeat(50));
+        System.out.println(repeat("-", 50));
         
         // Parse leaderboard data
         int leaderboardStart = resultsJson.indexOf("[");
@@ -216,7 +216,7 @@ public class QuizClient {
                 rank + medal, name, score, percentage);
         }
         
-        System.out.println("-".repeat(50));
+        System.out.println(repeat("-", 50));
         System.out.println("\nThank you for participating!");
     }
     
@@ -338,6 +338,18 @@ public class QuizClient {
             endIndex = str.length();
         }
         return Double.parseDouble(str.substring(startIndex, endIndex).trim());
+    }
+    
+    /**
+     * Simple repeat helper for older Java versions
+     */
+    private String repeat(String s, int count) {
+        if (s == null || count <= 0) return "";
+        StringBuilder sb = new StringBuilder(s.length() * count);
+        for (int i = 0; i < count; i++) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
     
     private void log(String message) {
