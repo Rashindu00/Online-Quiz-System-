@@ -1,0 +1,100 @@
+.student-list-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.student-count-badge {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.no-students {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-medium);
+}
+
+.no-students p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.waiting-text {
+  font-size: 14px;
+  color: var(--text-medium);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.student-item {
+  background-color: var(--background-very-light);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-gray);
+  transition: all 0.2s;
+}
+
+.student-item:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+.student-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-name {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.student-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-ready {
+  background-color: #d1fae5;
+  color: var(--success-green);
+}
+
+.status-answering {
+  background-color: #fef3c7;
+  color: var(--warning-orange);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.status-submitted {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+}
+
+.status-default {
+  background-color: var(--border-gray);
+  color: var(--text-medium);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

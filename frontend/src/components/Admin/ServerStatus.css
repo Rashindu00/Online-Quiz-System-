@@ -1,0 +1,67 @@
+.server-status-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-gray);
+}
+
+.status-row:last-of-type {
+  border-bottom: none;
+}
+
+.status-label {
+  font-weight: 500;
+  color: var(--text-medium);
+  font-size: 14px;
+}
+
+.status-value {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 16px;
+}
+
+.status-indicator {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-indicator.running {
+  background-color: #d1fae5;
+  color: var(--success-green);
+}
+
+.status-indicator.stopped {
+  background-color: #fee2e2;
+  color: var(--error-red);
+}
+
+.students-count {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.server-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.server-controls button {
+  flex: 1;
+}

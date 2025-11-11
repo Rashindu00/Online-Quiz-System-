@@ -1,0 +1,115 @@
+.leaderboard-card {
+  background-color: var(--white);
+  margin-top: 30px;
+}
+
+.leaderboard-table {
+  width: 100%;
+}
+
+.leaderboard-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px 120px;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--background-light);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.leaderboard-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leaderboard-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 100px 120px;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--background-very-light);
+  border-radius: 8px;
+  align-items: center;
+  transition: all 0.2s;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.leaderboard-row:hover {
+  background-color: var(--primary-light);
+  transform: translateX(4px);
+}
+
+.leaderboard-row.current-student {
+  background: linear-gradient(135deg, var(--primary-light), #e0e7ff);
+  border: 2px solid var(--primary-blue);
+  font-weight: 600;
+}
+
+.leaderboard-row.rank-1 {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+}
+
+.leaderboard-row.rank-2 {
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+}
+
+.leaderboard-row.rank-3 {
+  background: linear-gradient(135deg, #fed7aa, #fdba74);
+}
+
+.col-rank {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.rank-medal {
+  font-size: 24px;
+}
+
+.col-name {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.you-badge {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.col-score, .col-percentage {
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-header,
+  .leaderboard-row {
+    grid-template-columns: 80px 1fr 80px 100px;
+    gap: 8px;
+    padding: 12px;
+    font-size: 14px;
+  }
+}
